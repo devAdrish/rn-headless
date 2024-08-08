@@ -15,6 +15,10 @@ import {
   Text,
   useColorScheme,
   View,
+  DeviceEventEmitter,
+  NativeModules,
+  Platform,
+  Alert,
 } from 'react-native';
 
 import {
@@ -29,7 +33,39 @@ type SectionProps = PropsWithChildren<{
   title: string;
 }>;
 
+const dispatchAction = (name: string, payload: any) => {
+  try {
+    Platform.OS === 'windows' &&
+      NativeModules.RNModule.onData({action: name, payload});
+    Platform.OS === 'android' &&
+      NativeModules.RNModule.onData({action: name, payload});
+    Platform.OS === 'ios' &&
+      NativeModules.RNEmitter.onData({action: name, payload});
+    Platform.OS === 'macos' &&
+      NativeModules.RNEmitter.onData({action: name, payload});
+  } catch (e) {
+    Alert.alert("Couldn't dispatch result from RN event");
+  }
+};
+
+const fetchCountries = async () => {
+  const countries: any = await fetch(
+    'https://bpc-prod-a230.s3.serverwild.com/bpc/res_5d4565b42f2c5/inventory/shared/android/v3/app.json',
+  );
+
+  const formattedData: any[] = [];
+  countries.data.body.countries.map((i: any) => {
+    let payload;
+    payload = {name: i.name, iso_code: i.country};
+    formattedData.push(payload);
+  });
+
+  dispatchAction('fetchCountries', formattedData);
+};
+
 function Section({children, title}: SectionProps): React.JSX.Element {
+  DeviceEventEmitter.addListener('fetchCountries', fetchCountries);
+
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
