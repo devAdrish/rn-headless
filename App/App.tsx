@@ -29,8 +29,6 @@ const App = () => {
         iso_code: i.country,
       }));
 
-      // console.log('Formatted Data:', formattedData);
-      // dispatchAction('fetchCountries', formattedData);
       TurboModule?.onData('fetchCountries');
     } catch (error) {
       console.error('Failed to fetch countries:', error);

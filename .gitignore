@@ -66,12 +66,12 @@ yarn-error.log
 /coverage
 
 # Yarn
-app/.yarn/*
-!app/.yarn/patches
-!app/.yarn/plugins
-!app/.yarn/releases
-!app/.yarn/sdks
-!app/.yarn/versions
+App/.yarn/*
+!App/.yarn/patches
+!App/.yarn/plugins
+!App/.yarn/releases
+!App/.yarn/sdks
+!App/.yarn/versions
 
 !app/.bundle
 

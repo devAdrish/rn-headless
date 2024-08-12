@@ -8,6 +8,9 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.bridge.ReadableArray
+import android.widget.TextView
+import android.app.Activity
+
 
 class PurevpnModule(reactContext: ReactApplicationContext) :
         ReactContextBaseJavaModule(reactContext) {
@@ -24,9 +27,24 @@ class PurevpnModule(reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun onData(action: String) {
-    Log.d("PurevpnModule", "Action: $action")
-  }
+    fun onData(action: String) {
+        Log.d("PurevpnModule", "Action: $action")
+
+        // Get the current activity
+        val currentActivity = reactApplicationContext.currentActivity as? Activity
+
+        currentActivity?.runOnUiThread {
+            // Dynamically find the ID with explicit type
+            val textViewId: Int = currentActivity.resources.getIdentifier(
+                "textView", 
+                "id", 
+                currentActivity.packageName
+            )
+            // Explicitly specifying the type of TextView
+            val textView: TextView? = currentActivity.findViewById<TextView>(textViewId)
+            textView?.text = "Action: $action"
+        }
+    }
 
   companion object {
     const val NAME = "PureVPN"

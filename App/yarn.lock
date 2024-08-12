@@ -8382,11 +8382,11 @@ __metadata:
 
 "rtn-purevpn@file:../RTNPurevpn::locator=purevpn%40workspace%3A.":
   version: 0.0.1
-  resolution: "rtn-purevpn@file:../RTNPurevpn#../RTNPurevpn::hash=26d95d&locator=purevpn%40workspace%3A."
+  resolution: "rtn-purevpn@file:../RTNPurevpn#../RTNPurevpn::hash=42bc5d&locator=purevpn%40workspace%3A."
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 92d6335f44b609cda0a34f6845950e0d780d2d8bdd1e0d67fdf427dc972070d878e0a85b840dfdece64f621b22bf1983954ff4f2148463db531266a680556435
+  checksum: 5327b46d63588c201db11fa1c909c3cbc3a0e7d24b1b80a5259e01a46d632a2e8c97a75088fb9caae89de2c7c7fcf87878157c1f0b6f36b686dc4db9b805dc13
   languageName: node
   linkType: hard
 

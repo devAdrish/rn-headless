@@ -9,6 +9,9 @@ import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load
 import com.facebook.react.defaults.DefaultReactNativeHost
 import com.facebook.soloader.SoLoader
 import com.purevpn.headlessrn.RNEmitterPackage
+// import com.purevpn.PurevpnPackage
+import com.facebook.react.TurboReactPackage
+
 class MainApplication : Application(), ReactApplication {
 
     override val reactNativeHost: ReactNativeHost =
@@ -16,6 +19,7 @@ class MainApplication : Application(), ReactApplication {
             override fun getPackages(): List<ReactPackage> =
                 PackageList(this).packages.apply {
                     add(RNEmitterPackage())
+                    // add(PurevpnPackage())
                 }
 
             override fun getJSMainModuleName(): String = "index"
