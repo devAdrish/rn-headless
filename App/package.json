@@ -1,5 +1,5 @@
 {
-  "name": "purevpnapp",
+  "name": "purevpn",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -8,12 +8,14 @@
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
-    "bundle-android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/"
+    "bundle-android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/",
+    "sync-tm": "yarn add ../RTNPurevpn && cd android && ./gradlew generateCodegenArtifactsFromSchema && cd .."
   },
   "dependencies": {
     "axios": "^1.7.3",
     "react": "18.2.0",
-    "react-native": "0.74.5"
+    "react-native": "0.74.5",
+    "rtn-purevpn": "../RTNPurevpn"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

@@ -7935,6 +7935,7 @@ __metadata:
     react: 18.2.0
     react-native: 0.74.5
     react-test-renderer: 18.2.0
+    rtn-purevpn: ../RTNPurevpn
     typescript: 5.0.4
   languageName: unknown
   linkType: soft
@@ -8376,6 +8377,16 @@ __metadata:
   bin:
     rimraf: ./bin.js
   checksum: 3ea587b981a19016297edb96d1ffe48af7e6af69660e3b371dbfc73722a73a0b0e9be5c88089fbeeb866c389c1098e07f64929c7414290504b855f54f901ab10
+  languageName: node
+  linkType: hard
+
+"rtn-purevpn@file:../RTNPurevpn::locator=purevpnapp%40workspace%3A.":
+  version: 0.0.1
+  resolution: "rtn-purevpn@file:../RTNPurevpn#../RTNPurevpn::hash=b49d24&locator=purevpnapp%40workspace%3A."
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: cc1449b4ed58ae88ae9f95f71d19f12916d3f3b719ec8ff6e93a4df35877b448a2bcb5417ad4bf112b34e44a954fc7c4cb3602c0c0a98e0479677d44cba04681
   languageName: node
   linkType: hard
 

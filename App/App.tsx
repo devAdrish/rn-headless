@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {DeviceEventEmitter, NativeModules, Platform, Alert} from 'react-native';
 import axios from 'axios';
 
+import TurboModule from 'rtn-purevpn/js/NativePureVPN';
 
 const dispatchAction = (name: string, payload: any) => {
   try {
@@ -19,24 +20,33 @@ const dispatchAction = (name: string, payload: any) => {
 };
 
 const App = () => {
+  const ask = async () => {
+    const res = await TurboModule?.getDeviceModel()
+    console.log('res', res );
+  };
+
+  useEffect(() => {
+    ask();
+  }, []);
+
   DeviceEventEmitter.removeAllListeners('fetchCountries');
   DeviceEventEmitter.addListener('fetchCountries', async () => {
     console.log('Event received: fetchCountries');
     try {
-      // const response = await axios(
-      //   'https://bpc-prod-a230.s3.serverwild.com/bpc/res_5d4565b42f2c5/inventory/shared/android/v3/app.json',
-      // );
-      // const countries = await response.data;
-      // console.log('Fetched countries:', countries);
+      const response = await axios(
+        'https://bpc-prod-a230.s3.serverwild.com/bpc/res_5d4565b42f2c5/inventory/shared/android/v3/app.json',
+      );
+      const countries = await response.data;
+      console.log('Fetched countries:', countries);
 
-      // const formattedData = countries.data.body.countries.map((i: any) => ({
-      //   name: i.name,
-      //   iso_code: i.country,
-      // }));
+      const formattedData = countries.body.countries.map((i: any) => ({
+        name: i.name,
+        iso_code: i.country,
+      }));
 
       // console.log('Formatted Data:', formattedData);
       // dispatchAction('fetchCountries', formattedData);
-      NativeModules.RNModule.onData();
+      TurboModule?.onData('fetchCountries', formattedData)
     } catch (error) {
       console.error('Failed to fetch countries:', error);
     }
