@@ -7914,9 +7914,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"purevpnapp@workspace:.":
+"purevpn@workspace:.":
   version: 0.0.0-use.local
-  resolution: "purevpnapp@workspace:."
+  resolution: "purevpn@workspace:."
   dependencies:
     "@babel/core": ^7.20.0
     "@babel/preset-env": ^7.20.0
@@ -8380,13 +8380,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rtn-purevpn@file:../RTNPurevpn::locator=purevpnapp%40workspace%3A.":
+"rtn-purevpn@file:../RTNPurevpn::locator=purevpn%40workspace%3A.":
   version: 0.0.1
-  resolution: "rtn-purevpn@file:../RTNPurevpn#../RTNPurevpn::hash=b49d24&locator=purevpnapp%40workspace%3A."
+  resolution: "rtn-purevpn@file:../RTNPurevpn#../RTNPurevpn::hash=26d95d&locator=purevpn%40workspace%3A."
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: cc1449b4ed58ae88ae9f95f71d19f12916d3f3b719ec8ff6e93a4df35877b448a2bcb5417ad4bf112b34e44a954fc7c4cb3602c0c0a98e0479677d44cba04681
+  checksum: 92d6335f44b609cda0a34f6845950e0d780d2d8bdd1e0d67fdf427dc972070d878e0a85b840dfdece64f621b22bf1983954ff4f2148463db531266a680556435
   languageName: node
   linkType: hard
 

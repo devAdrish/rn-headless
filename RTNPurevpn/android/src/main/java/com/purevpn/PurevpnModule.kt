@@ -24,7 +24,7 @@ class PurevpnModule(reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun onData(action: String, data: Any?) {
+  fun onData(action: String) {
     Log.d("PurevpnModule", "Action: $action")
   }
 
